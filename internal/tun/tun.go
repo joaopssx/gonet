@@ -17,8 +17,8 @@ type Interface struct {
 	mtu  int
 }
 
-// Open creates or opens a TUN device.
-func Open(name string, mtu int) (*Interface, error) {
+// OpenTUN creates or opens a TUN device.
+func OpenTUN(name string, mtu int) (*Interface, error) {
 	// Open the TUN/TAP device file
 	fd, err := syscall.Open("/dev/net/tun", os.O_RDWR, 0)
 	if err != nil {
