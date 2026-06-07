@@ -3,6 +3,7 @@ module github.com/joaopssx/gonet
 go 1.26.2
 
 require (
+	github.com/google/gopacket v1.1.19
 	github.com/spf13/cobra v1.10.2
 	go.uber.org/zap v1.28.0
 	golang.org/x/sys v0.45.0
