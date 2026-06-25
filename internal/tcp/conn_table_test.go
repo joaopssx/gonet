@@ -18,7 +18,7 @@ func TestConnectionTable_RegisterRemoveLookup(t *testing.T) {
 		DstPort: 80,
 	}
 
-	conn := &TCPConn{Key: key}
+	conn := &TCPConn{key: key}
 
 	// Lookup non-existent
 	if _, ok := ct.Lookup(key); ok {
@@ -88,7 +88,7 @@ func TestConnectionTable_LookupOrListener(t *testing.T) {
 		DstIP:   dstArr,
 		DstPort: 80,
 	}
-	conn := &TCPConn{Key: key}
+	conn := &TCPConn{key: key}
 	listener := &Listener{Port: 8080}
 
 	ct.Register(conn)

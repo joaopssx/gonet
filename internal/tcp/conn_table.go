@@ -17,11 +17,6 @@ type ConnKey struct {
 	DstPort uint16
 }
 
-// TCPConn represents a TCP connection (placeholder for future phases).
-type TCPConn struct {
-	Key ConnKey
-}
-
 // Listener represents a TCP listener (placeholder for future phases).
 type Listener struct {
 	Port uint16
@@ -58,10 +53,10 @@ func (ct *ConnectionTable) Register(conn *TCPConn) error {
 	ct.mu.Lock()
 	defer ct.mu.Unlock()
 
-	if _, exists := ct.conns[conn.Key]; exists {
+	if _, exists := ct.conns[conn.key]; exists {
 		return ErrConnExists
 	}
-	ct.conns[conn.Key] = conn
+	ct.conns[conn.key] = conn
 	return nil
 }
 
